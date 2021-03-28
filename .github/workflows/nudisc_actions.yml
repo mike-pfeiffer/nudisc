@@ -1,0 +1,31 @@
+name: nudisc workflow
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        python-version: [3.6]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt 
+    - name: Lint with flake8
+      run: |
+        flake8 app tests --extend-ignore=E402,F401
+        flake8 . --count --exit-zero --max-line-length=79 --statistics
+    - name: Test with pytest
+      run: |
+        pytest
