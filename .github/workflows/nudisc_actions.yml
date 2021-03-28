@@ -26,6 +26,3 @@ jobs:
       run: |
         flake8 app tests --extend-ignore=E402,F401
         flake8 . --count --exit-zero --max-line-length=79 --statistics
-    - name: Test with pytest
-      run: |
-        pytest
