@@ -65,10 +65,9 @@ def find_open_protocols():
         for protocol in protocol_list:
             # Keys for retrieving nmap's status for protocol
             protocol_state = protocol['state']['@state']
-            protocol_name = ''
+            protocol_name = protocol['service']['@name']
             # Checks if protocol is in desired state.
             if(protocol_state == protocol_status):
-                protocol_name = protocol['service']['@name']
                 host_details = host['address']
                 if(type(host_details) is dict):
                     ipv4_addr = host_details['@addr']
@@ -82,9 +81,7 @@ def find_open_protocols():
                     ipv4_addr = ''
 
                 # Once host is extracted update the targets dictionary.
-                if not protocol_name:
-                    continue
-                elif protocol_name not in targets_dict:
+                if protocol_name not in targets_dict:
                     targets_dict[protocol_name] = [ipv4_addr]
                 else:
                     targets_dict[protocol_name].append(ipv4_addr)
