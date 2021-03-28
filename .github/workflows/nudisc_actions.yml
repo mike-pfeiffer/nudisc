@@ -24,5 +24,5 @@ jobs:
         pip install -r requirements.txt 
     - name: Lint with flake8
       run: |
-        flake8 app tests --extend-ignore=E402,F401
+        flake8 app --extend-ignore=E402,F401
         flake8 . --count --exit-zero --max-line-length=79 --statistics
