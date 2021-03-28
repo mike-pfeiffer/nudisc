@@ -2,7 +2,7 @@ name: nudisc workflow
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
