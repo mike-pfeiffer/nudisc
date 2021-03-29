@@ -69,15 +69,17 @@ root@57576b930eba:/app# cat targets/tcp_targets.txt
 192.168.11.1
 ```
 
-5. To change IP range or Protocols you will need to modify the **nudisc.py**
-file with **vim**.
-
-```shell
-root@57576b930eba:/app# vim nudisc.py
-```
-
-*Alternatively, you can install any other applications you wish in this
-container.*
-
-6. The targets output files are formatted for use as input files with other
+5. The targets output files are formatted for use as input files with other
 nmap commands and scripts.
+
+## scan.json
+
+To modify what will be scanned modify the **scan.json** file either before or
+after the container build.
+
+```json
+{
+    "ipv4_range" : "192.168.0.0/20",
+    "ip_protocols" : "1,6,17" 
+}
+```
