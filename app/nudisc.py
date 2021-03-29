@@ -59,7 +59,7 @@ def find_open_protocols(ip_range, ip_protocols):
             protocol_state = protocol['state']['@state']
             protocol_name = protocol['service']['@name']
             # Checks if protocol is in desired state.
-            if(protocol_state == protocol_status):
+            if(protocol_status in protocol_state):
                 host_details = host['address']
                 if(type(host_details) is dict):
                     ipv4_addr = host_details['@addr']
