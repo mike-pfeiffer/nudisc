@@ -2,6 +2,8 @@
 
 Network Utilities - Discovery Tool
 
+[![nudisc workflow](https://github.com/pfeiffermj/nudisc/actions/workflows/nudisc_actions.yml/badge.svg?branch=main)](https://github.com/pfeiffermj/nudisc/actions/workflows/nudisc_actions.yml)
+
 ## Setup
 
 1. Clone the repository.
