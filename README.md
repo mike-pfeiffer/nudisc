@@ -77,9 +77,14 @@ nmap commands and scripts.
 To modify what will be scanned modify the **scan.json** file either before or
 after the container build.
 
+The container includes vim but you are free to download any text editor you
+wish to use.
+
 ```json
 {
     "ipv4_range" : "192.168.0.0/20",
-    "ip_protocols" : "1,6,17" 
+    "ip_protocols" : "1,6,17",
+    "tcp_ports" : "22,23,25,53,80,443,445,1433,3306,3389,5800,5900,8080,8443",
+    "udp_ports" : "53,67,68,69,123,161,162,514,636,2055"
 }
 ```
