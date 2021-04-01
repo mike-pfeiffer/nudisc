@@ -36,6 +36,12 @@ sudo docker container run -it --name nudisc local:nudisc
 sudo docker container start nudisc -ai
 ```
 
+6. Reattach to the running container.
+
+```shell
+sudo docker container attach nudisc
+```
+
 ## Basic Usage
 
 1. When you are in an interactive session with the container a similar prompt will appear:
