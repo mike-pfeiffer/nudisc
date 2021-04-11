@@ -12,34 +12,40 @@ Network Utilities - Discovery Tool
 git clone https://github.com/pfeiffermj/nudisc.git
 ```
 
-2. Change directory to the cloned repository.
+2. Change directory to the repository.
 
 ```shell
 cd nudisc
 ```
 
-3. Build the docker image for the nudisc container.
+3. Build the image for the nudisc container.
 
 ```shell
 sudo docker image build --tag local:nudisc .
 ```
 
-4. Run interactive session with the nudisc container.
+4. Run the container in detached state with TCP 8080->80 port mapping.
 
 ```shell
-sudo docker container run -it --name nudisc local:nudisc
+sudo docker container run -d -p 8080:80 --name nudisc local:nudisc
 ```
 
-5. Restart interactive session with the nudisc container. 
+5. Connect to the container's shell.
 
 ```shell
-sudo docker container start nudisc -ai
+sudo docker exec -it nudisc bash
 ```
 
-6. Reattach to the running container.
+6. Stop the container when finished.
 
 ```shell
-sudo docker container attach nudisc
+sudo docker container stop nudisc
+```
+
+7. Start the container if stopped.
+
+```shell
+sudo docker container start nudisc
 ```
 
 ## Basic Usage
